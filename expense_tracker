@@ -37,7 +37,7 @@ class ExpensesTracker:
         amount = float(input("Enter the expense amount: "))
         description = input("Enter a brief description: ")
 
-        date = input("Enter the date (e.g., 12-01-2023): ")
+        date = input("Enter the date (e.g., 12/01/2023): ")
         expense = Expense(date, amount, description)
 
         self.expenses.append(expense)
@@ -55,7 +55,7 @@ class ExpensesTracker:
             if choice == '1':
                 self._display_expenses(self.expenses)
             elif choice == '2':
-                target_date = input("Enter the date (MM-DD-YYYY): ")
+                target_date = input("Enter the date (MM/DD/YYYY): ")
                 filtered_expenses = [expense for expense in self.expenses if expense.date == target_date]
                 self._display_expenses(filtered_expenses)
             else:
@@ -70,7 +70,7 @@ class ExpensesTracker:
             total = sum(expense.amount for expense in self.expenses)
             print(f"Total Expenses: ${total:.2f}")
         elif choice == '2':
-            target_date = input("Enter the date (YYYY-MM-DD): ")
+            target_date = input("Enter the date (MM/DD/YYYY): ")
             filtered_expenses = [expense.amount for expense in self.expenses if expense.date == target_date]
             total = sum(filtered_expenses)
             print(f"Total Expenses for {target_date}: ${total:.2f}")
