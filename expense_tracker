@@ -36,10 +36,9 @@ class ExpensesTracker:
     def add_expense(self):
         amount = float(input("Enter the expense amount: "))
         description = input("Enter a brief description: ")
+        date = input("Enter the date (MM/DD/YYYY): ")
 
-        date = input("Enter the date (e.g., 12/01/2023): ")
         expense = Expense(date, amount, description)
-
         self.expenses.append(expense)
         self.save_data()
         print("Expense added successfully!")
