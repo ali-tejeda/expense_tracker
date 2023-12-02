@@ -62,8 +62,20 @@ class ExpensesTracker:
                 print("Invalid choice. Please enter 1 or 2.")
     
     def calculate_total_expenses(self):
-        total = sum(expense.amount for expense in self.expenses)
-        print(f"Total Expenses: ${total:.2f}")
+        print("1. Calculate total for all expenses")
+        print("2. Calculate total for a specific date")
+        choice = input("Enter your choice (1-2): ")
+
+        if choice == '1':
+            total = sum(expense.amount for expense in self.expenses)
+            print(f"Total Expenses: ${total:.2f}")
+        elif choice == '2':
+            target_date = input("Enter the date (YYYY-MM-DD): ")
+            filtered_expenses = [expense.amount for expense in self.expenses if expense.date == target_date]
+            total = sum(filtered_expenses)
+            print(f"Total Expenses for {target_date}: ${total:.2f}")
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
         
     def _display_expenses(self, expenses):
         print("Date                | Amount  | Description")
