@@ -30,7 +30,8 @@ class ExpensesTracker:
     def show_menu(self):
         print("1. Add New Expense")
         print("2. View Expenses")
-        print("3. Exit")
+        print("3. Calculate Total Expenses")
+        print("4. Exit")
 
     def add_expense(self):
         amount = float(input("Enter the expense amount: "))
@@ -59,7 +60,11 @@ class ExpensesTracker:
                 self._display_expenses(filtered_expenses)
             else:
                 print("Invalid choice. Please enter 1 or 2.")
-
+    
+    def calculate_total_expenses(self):
+        total = sum(expense.amount for expense in self.expenses)
+        print(f"Total Expenses: ${total:.2f}")
+        
     def _display_expenses(self, expenses):
         print("Date                | Amount  | Description")
         print("-----------------------------------------")
