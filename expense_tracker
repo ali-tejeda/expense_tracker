@@ -74,7 +74,7 @@ class ExpensesTracker:
     def main(self):
         while True:
             self.show_menu()
-            choice = input("Enter your choice (1-3): ")
+            choice = input("Enter your choice (1-4): ")
 
             if choice == '1':
                 self.add_expense()
