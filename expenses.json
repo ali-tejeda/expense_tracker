@@ -1,0 +1,24 @@
+{
+  "expenses": [
+    {
+      "date": "2023-12-02 11:41:22.608185",
+      "amount": 34.0,
+      "description": "groceries"
+    },
+    {
+      "date": "2023-12-02 11:42:41.396896",
+      "amount": 23.0,
+      "description": "Target makeup"
+    },
+    {
+      "date": "2023-12-02 11:44:09.313467",
+      "amount": 45.0,
+      "description": "ShopRite groceries"
+    },
+    {
+      "date": "2023-12-02 11:47:08.335239",
+      "amount": 89.0,
+      "description": "GymsharK USA"
+    }
+  ]
+}

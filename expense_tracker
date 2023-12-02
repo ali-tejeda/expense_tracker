@@ -1,0 +1,84 @@
+import os
+import json
+from datetime import datetime
+
+class Expense:
+    def __init__(self, date, amount, description):
+        self.date = date
+        self.amount = amount
+        self.description = description
+
+    def __str__(self):
+        return f"{self.date} | ${self.amount:.2f} | {self.description}"
+
+class ExpensesTracker:
+    def __init__(self):
+        self.expenses = self.load_data()
+
+    def load_data(self):
+        if os.path.exists('expenses.json'):
+            with open('expenses.json', 'r') as file:
+                data = json.load(file)
+                return [Expense(expense['date'], expense['amount'], expense['description']) for expense in data['expenses']]
+        else:
+            return []
+
+    def save_data(self):
+        with open('expenses.json', 'w') as file:
+            data = {'expenses': [vars(expense) for expense in self.expenses]}
+            json.dump(data, file, indent=2)
+
+    def show_menu(self):
+        print("1. Add Expense")
+        print("2. View Expenses")
+        print("3. Exit")
+
+    def add_expense(self):
+        amount = float(input("Enter the expense amount: "))
+        description = input("Enter a brief description: ")
+
+        expense = Expense(str(datetime.now()), amount, description)
+        self.expenses.append(expense)
+        self.save_data()
+        print("Expense added successfully!")
+
+    def view_expenses(self):
+        if not self.expenses:
+            print("No expenses recorded yet.")
+        else:
+            print("1. View all expenses")
+            print("2. View expenses for a specific date")
+            choice = input("Enter your choice (1-2): ")
+
+            if choice == '1':
+                self._display_expenses(self.expenses)
+            elif choice == '2':
+                target_date = input("Enter the date (YYYY-MM-DD): ")
+                filtered_expenses = [expense for expense in self.expenses if expense.date.startswith(target_date)]
+                self._display_expenses(filtered_expenses)
+            else:
+                print("Invalid choice. Please enter 1 or 2.")
+
+    def _display_expenses(self, expenses):
+            print("Date                | Amount  | Description")
+            print("-----------------------------------------")
+            for expense in expenses:
+                print(expense)
+    def main(self):
+        while True:
+            self.show_menu()
+            choice = input("Enter your choice (1-3): ")
+
+            if choice == '1':
+                self.add_expense()
+            elif choice == '2':
+                self.view_expenses()
+            elif choice == '3':
+                print("Exiting the Expenses Tracker. Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please enter a number between 1 and 3.")
+
+if __name__ == "__main__":
+    expenses_tracker = ExpensesTracker()
+    expenses_tracker.main()
