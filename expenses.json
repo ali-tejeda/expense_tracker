@@ -1,7 +1,9 @@
 {
   "expenses": [
     {
+      "date": "12/05/2023",
+      "amount": 42.68,
+      "description": "ShopRite groceries"
     }
-    
   ]
 }
