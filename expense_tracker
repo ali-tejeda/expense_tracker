@@ -12,15 +12,22 @@ class Expense:
 
 class ExpensesTracker:
     def __init__(self):
-        self.expenses = self.load_data()
+        try:
+            self.expenses = self.load_data()
+        except Exception as e:
+            print(f"Error initializing ExpensesTracker: {e}")
+            self.expenses = []
 
     def load_data(self):
         if os.path.exists('expenses.json'):
             with open('expenses.json', 'r') as file:
                 data = json.load(file)
-                return [Expense(expense['date'], expense['amount'], expense['description']) for expense in data['expenses']]
-        else:
-            return []
+                if 'expenses' in data:
+                    return [Expense(expense['date'], expense['amount'], expense['description']) for expense in data['expenses']]
+                else:
+                    print("Invalid data format in expenses.json. Please check the file structure.")
+        return []
+
 
     def save_data(self):
         with open('expenses.json', 'w') as file:
