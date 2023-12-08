@@ -4,6 +4,21 @@
       "date": "12/05/2023",
       "amount": 42.68,
       "description": "ShopRite groceries"
+    },
+    {
+      "date": "12/07/2023",
+      "amount": 39.64,
+      "description": "Etsy Christmas gifts"
+    },
+    {
+      "date": "11/26/2023",
+      "amount": 213.01,
+      "description": "Chase Travel (flight back home)"
+    },
+    {
+      "date": "11/12/2023",
+      "amount": 17.52,
+      "description": "Uber Eats"
     }
   ]
 }
