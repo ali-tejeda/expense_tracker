@@ -19,6 +19,51 @@
       "date": "11/12/2023",
       "amount": 17.52,
       "description": "Uber Eats"
+    },
+    {
+      "date": "12/09/2023",
+      "amount": 14.14,
+      "description": "Raising Cane's food"
+    },
+    {
+      "date": "09/16/2023",
+      "amount": 35.79,
+      "description": "Trader Joe's groceries"
+    },
+    {
+      "date": "07/15/2023",
+      "amount": 32.52,
+      "description": "Amazon"
+    },
+    {
+      "date": "12/03/2023",
+      "amount": 3.86,
+      "description": "7-Eleven food"
+    },
+    {
+      "date": "12/03/2023",
+      "amount": 5.95,
+      "description": "Carvel"
+    },
+    {
+      "date": "11/16/2023",
+      "amount": 219.92,
+      "description": "Countdown NYE Tickets"
+    },
+    {
+      "date": "12/05/2023",
+      "amount": 15.93,
+      "description": "SantaCon ticket"
+    },
+    {
+      "date": "12/06/2023",
+      "amount": 98.54,
+      "description": "BF Christmas present"
+    },
+    {
+      "date": "12/09/2023",
+      "amount": 22.5,
+      "description": "MTA Ticket"
     }
   ]
 }
