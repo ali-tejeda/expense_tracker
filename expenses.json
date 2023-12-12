@@ -64,6 +64,21 @@
       "date": "12/09/2023",
       "amount": 22.5,
       "description": "MTA Ticket"
+    },
+    {
+      "date": "12/12/2023",
+      "amount": 4.75,
+      "description": "Starbucks coffee"
+    },
+    {
+      "date": "12/05/2023",
+      "amount": 20.25,
+      "description": "Chevron gas"
+    },
+    {
+      "date": "12/09/2023",
+      "amount": 5.25,
+      "description": "Starbucks coffee"
     }
   ]
 }
