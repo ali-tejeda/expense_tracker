@@ -88,23 +88,67 @@ class ExpensesTracker:
         print("-----------------------------------------")
         for expense in expenses:
             print(expense)
+    def expense_statistics(self):
+        if not self.expenses:
+            print("No expenses recorded yet.")
+            return
 
+        print("Expense Statistics:")
+        print("1. Average Expense")
+        print("2. Highest Expense")
+        print("3. Lowest Expense")
+        print("4. Back to main menu")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            self.calculate_average_expense()
+        elif choice == '2':
+            self.find_highest_expense()
+        elif choice == '3':
+            self.find_lowest_expense()
+        elif choice == '4':
+            return
+        else:
+            print("Invalid choice. Please enter a number between 1 and 4.")
+
+    def calculate_average_expense(self):
+        total_expenses = sum(expense.amount for expense in self.expenses)
+        average_expense = total_expenses / len(self.expenses) if len(self.expenses) > 0 else 0
+        print(f"Average Expense: ${average_expense:.2f}")
+
+    def find_highest_expense(self):
+        highest_expense = max(self.expenses, key=lambda expense: expense.amount, default=None)
+        if highest_expense:
+            print(f"Highest Expense: {highest_expense}")
+        else:
+            print("No expenses recorded yet.")
+
+    def find_lowest_expense(self):
+        lowest_expense = min(self.expenses, key=lambda expense: expense.amount, default=None)
+        if lowest_expense:
+            print(f"Lowest Expense: {lowest_expense}")
+        else:
+            print("No expenses recorded yet.")
+            
     def main(self):
-        while True:
-            self.show_menu()
-            choice = input("Enter your choice (1-4): ")
+       while True:
+        self.show_menu()
+        choice = input("Enter your choice (1-5): ")
 
-            if choice == '1':
-                self.add_expense()
-            elif choice == '2':
-                self.view_expenses()
-            elif choice == '3':
-                self.calculate_total_expenses()
-            elif choice == '4':
-                print("Thank you for using the Expenses Tracker. Have a great day!")
-                break
-            else:
-                print("Invalid choice. Please enter a number between 1 and 4.")
+        if choice == '1':
+            self.add_expense()
+        elif choice == '2':
+            self.view_expenses()
+        elif choice == '3':
+            self.calculate_total_expenses()
+        elif choice == '4':
+            self.expense_statistics()
+        elif choice == '5':
+            print("Thank you for using the Expenses Tracker. Have a great day!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
 
 if __name__ == "__main__":
     expenses_tracker = ExpensesTracker()
