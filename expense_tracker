@@ -38,7 +38,8 @@ class ExpensesTracker:
         print("1. Add Expense")
         print("2. View Expenses")
         print("3. Calculate Total Expenses")
-        print("4. Exit")
+        print("4. Expense Statistics")
+        print("5. Exit")
 
     def add_expense(self):
         amount = float(input("Enter the expense amount: "))
@@ -88,6 +89,7 @@ class ExpensesTracker:
         print("-----------------------------------------")
         for expense in expenses:
             print(expense)
+            
     def expense_statistics(self):
         if not self.expenses:
             print("No expenses recorded yet.")
